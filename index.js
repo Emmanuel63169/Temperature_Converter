@@ -5,8 +5,12 @@
  * @param {number} f temperature in °F
  * @returns {number} temperature in °C
  */
+
 function convertToCelsius(f) {
-  // TODO
+  console.log("fahrenheit is", f)
+  let c = (f - 32) * 5/9;
+  console.log("celcius is", c)
+  return c;
 }
 
 /**
@@ -22,16 +26,37 @@ function convertToCelsius(f) {
  * @returns {string} the description from the table above corresponding to
  * the given Fahrenheit temperature `f`
  */
-function describeTemperature(f) {
-  // TODO
+function describeTemperature(c) {
+  let message = " ";
+  const numf = f * 1;
+  if (numf < 32) {
+    console.log("num fahrenheit is less than 32!");
+    message = "That is Very Cold!"
+  } else if (numf < 64) {
+    console.log("num fahrenheit is less than 64!");
+    message = "That is Cold!"
+  } else if (numf < 86) {
+    console.log("num fahrenheit is less than 86!");
+    message = "That is Warm!"
+  } else if (numf < 100) {
+    console.log("num fahrenheit is less than 32!");
+    message = "That is Very Cold!"
+  } else if (numf < 150) {
+    console.log("num fahrenheit is less than 150!");
+    message = "That is Very hot!"
+  } else if (numf >= 150) {
+    console.log("num fahrenheit is more than 150!");
+    message = "That is Scorching!"
+  }
+  return `${f} fahrenheit converted to ${c} celsius ${message}`;
 }
 
 /**
  * @param {number} limit
  * @returns {number} a random integer in the range [0, `limit`)
  */
-function getRandomInt(limit) {
-  // TODO
+function getRandomInt(max) {
+  return Math.floor(Math.random(f) * max)
 }
 
 // -------------------- DO NOT CHANGE THE CODE BELOW ---------------------- //
@@ -43,7 +68,7 @@ function getRandomInt(limit) {
 function parseFahrenheit(f) {
   const c = convertToCelsius(f);
   const description = describeTemperature(f);
-  const message = `${f}°F is ${c}°C. That is ${description}.`;
+  const message = `${f}°F is ${c}°C. That is ${description}`;
   alert(message);
 }
 
